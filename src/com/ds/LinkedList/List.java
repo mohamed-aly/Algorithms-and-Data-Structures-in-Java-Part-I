@@ -11,4 +11,6 @@ public interface List<T extends Comparable<T>> {
     int size();
 
     Node<T> getMiddleNode();
+
+    void reverse();
 }

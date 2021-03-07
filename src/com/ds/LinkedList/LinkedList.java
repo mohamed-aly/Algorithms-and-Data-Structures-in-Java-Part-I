@@ -88,4 +88,20 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
 
         return slowerPointer;
     }
+
+    @Override
+    public void reverse() {
+        Node<T> currentNode = this.root;
+        Node<T> nextNode = null;
+        Node<T> previousNode = null;
+
+        while(currentNode != null){
+            nextNode = currentNode.getNextNode();
+            currentNode.setNextNode(previousNode);
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+
+        this.root = previousNode;
+    }
 }

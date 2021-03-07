@@ -8,7 +8,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/.git/info/exclude">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/notes/2. Arrays/Arrays Operations.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/notes/4. linkedList/linkedList Operations.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/notes/4. linkedList/linkedList vs arrayList.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/Arrays/Anagram.java">
           <value>
             <set />
           </value>
@@ -18,12 +38,67 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/Arrays/Duplicate.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/com/ds/Arrays/InterView.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/Arrays/ReserviorSampling.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/Arrays/ReservoirSampling.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/LinkedList/Application.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/LinkedList/LinkedList.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/LinkedList/List.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/LinkedList/Node.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="D:/iServe/iserve-backend/src/main/java/com/iserve/iserve/config/BootStrap.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/iServe/iserve-backend/src/main/java/com/iserve/iserve/controller/DeviceController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/iServe/iserve-backend/src/main/java/com/iserve/iserve/converter/booking/IServeBookingConverter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/iServe/iserve-backend/src/main/java/com/iserve/iserve/service/M2XSevice.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/iServe/iserve-backend/src/main/java/com/iserve/iserve/transfer/PagingDTO.java">
           <value>
             <set />
           </value>
