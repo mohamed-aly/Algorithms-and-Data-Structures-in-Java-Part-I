@@ -8,9 +8,11 @@ public class Application {
         list.add("ahmed");
         list.add("mostafa");
         list.add("abdo");
+        System.out.println(list.getMiddleNode());
         System.out.println(list.size());
         list.traverse();
         list.remove("ahmed");
+        System.out.println(list.getMiddleNode());
         System.out.println(list.size());
         list.traverse();
     }

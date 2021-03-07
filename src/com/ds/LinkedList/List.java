@@ -1,6 +1,6 @@
 package com.ds.LinkedList;
 
-public interface List<T> {
+public interface List<T extends Comparable<T>> {
 
     void add(T data);
 
@@ -9,4 +9,6 @@ public interface List<T> {
     void traverse();
 
     int size();
+
+    Node<T> getMiddleNode();
 }
