@@ -21,6 +21,7 @@ public class Stack<T> {
     public T pop() {
 
         T itemToPop = this.stack[--numberOfItems];
+        this.stack[numberOfItems]=null;
 
         if (numberOfItems > 0 && numberOfItems == stack.length / 4) {
             resize(this.stack.length / 2);
