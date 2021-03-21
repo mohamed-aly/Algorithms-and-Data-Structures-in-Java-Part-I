@@ -14,29 +14,37 @@ public class Algorithm {
     public void interpret(String expression) {
         String[] expressionsArray = expression.split(" ");
         for (String s : expressionsArray) {
-            if(s.equals("(")){
-                //Do nothing
-            }else if (s.equals("*") || s.equals("+") || s.equals("-") || s.equals("/")) {
-                this.operationsStack.push(s);
-            } else if (s.equals(")")) {
-                String operation = this.operationsStack.pop();
+            switch (s) {
+                case "(":
+                    //Do nothing
+                    break;
+                case "*":
+                case "+":
+                case "-":
+                case "/":
+                    this.operationsStack.push(s);
+                    break;
+                case ")":
+                    String operation = this.operationsStack.pop();
 
-                switch (operation) {
-                    case "+":
-                        this.valuesStack.push(this.valuesStack.pop() + this.valuesStack.pop());
-                        break;
-                    case "*":
-                        this.valuesStack.push(this.valuesStack.pop() * this.valuesStack.pop());
-                        break;
-                    case "-":
-                        this.valuesStack.push(this.valuesStack.pop() - this.valuesStack.pop());
-                        break;
-                    case "/":
-                        this.valuesStack.push(this.valuesStack.pop() / this.valuesStack.pop());
-                        break;
-                }
-            }else{
-                this.valuesStack.push(Double.parseDouble(s));
+                    switch (operation) {
+                        case "+":
+                            this.valuesStack.push(this.valuesStack.pop() + this.valuesStack.pop());
+                            break;
+                        case "*":
+                            this.valuesStack.push(this.valuesStack.pop() * this.valuesStack.pop());
+                            break;
+                        case "-":
+                            this.valuesStack.push(this.valuesStack.pop() - this.valuesStack.pop());
+                            break;
+                        case "/":
+                            this.valuesStack.push(this.valuesStack.pop() / this.valuesStack.pop());
+                            break;
+                    }
+                    break;
+                default:
+                    this.valuesStack.push(Double.parseDouble(s));
+                    break;
             }
         }
     }

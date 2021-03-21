@@ -78,6 +78,31 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/Queue/App.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/Queue/Node.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/Queue/Queue.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/StackArray/App.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/StackArray/Stack.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/com/ds/StackLinkedList/App.java">
           <value>
             <set />
@@ -89,6 +114,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/com/ds/StackLinkedList/Stack.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/dijkstra/Algorithm.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/ds/dijkstra/App.java">
           <value>
             <set />
           </value>
