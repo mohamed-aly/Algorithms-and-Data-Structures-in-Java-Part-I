@@ -19,7 +19,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
     }
 
     private void insertNode(Node<T> node, T newData) {
-        if (node.getData().compareTo(newData) < 0) {
+        if (newData.compareTo(node.getData()) < 0) {
             if (node.getLeftChild() != null) {
                 insertNode(node.getLeftChild(), newData);
             } else {
@@ -43,11 +43,38 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public T getMin() {
-        return null;
+        if (this.root == null) {
+            return null;
+        }
+
+        return getMin(root.getLeftChild());
+
+    }
+
+    private T getMin(Node<T> node) {
+        if (node.getLeftChild() != null) {
+            return getMin(node.getLeftChild());
+        }
+
+        return node.getData();
+
     }
 
     @Override
     public T getMax() {
-        return null;
+        if (this.root == null) {
+            return null;
+        }
+        return getMax(this.root.getRightChild());
+
+    }
+
+    private T getMax(Node<T> node) {
+        if (node.getRightChild() != null) {
+            return getMax(node.getRightChild());
+        }
+
+        return node.getData();
+
     }
 }
