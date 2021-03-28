@@ -7,9 +7,10 @@ public class App {
         tree.insert(10);
         tree.insert(5);
         tree.insert(11);
+        tree.insert(-1);
+        tree.insert(0);
 
-        System.out.println(tree.getMin());
-        System.out.println(tree.getMax());
+        tree.traverse();
 
     }
 }
