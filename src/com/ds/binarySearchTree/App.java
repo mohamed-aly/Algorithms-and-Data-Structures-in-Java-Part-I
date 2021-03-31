@@ -8,7 +8,16 @@ public class App {
         tree.insert(5);
         tree.insert(11);
         tree.insert(-1);
+        tree.insert(20);
+        tree.insert(-5);
         tree.insert(0);
+
+        tree.remove(20);
+        System.out.println(tree.getMax());
+        tree.remove(11);
+        System.out.println(tree.getMax());
+        tree.remove(10);
+        System.out.println(tree.getMax());
 
         tree.traverse();
 

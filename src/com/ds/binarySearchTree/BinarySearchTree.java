@@ -49,7 +49,53 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public void remove(T data) {
+        if (this.root != null)
+            this.root = remove(this.root, data);
 
+    }
+
+    private Node<T> remove(Node<T> node, T data) {
+        if (data.compareTo(node.getData()) < 0) {
+            node.setLeftChild(remove(node.getLeftChild(), data));
+        } else if (data.compareTo(node.getData()) > 0) {
+            node.setRightChild(remove(node.getRightChild(), data));
+        } else {
+            //we found the node
+
+            //first case: leaf node
+            if (node.getLeftChild() == null && node.getRightChild() == null) {
+                return null;
+            }
+
+            //second case: has a single child
+            //1- has left child
+            if (node.getRightChild() == null) {
+                Node<T> tempNode = node.getLeftChild();
+                node = null;
+                return tempNode;
+                //2- has right child
+            } else if (node.getLeftChild() == null) {
+                Node<T> tempNode = node.getRightChild();
+                node = null;
+                return tempNode;
+            }
+
+            //case three: node with 2 children
+            Node<T> tempNode = getPredecessor(node.getLeftChild());
+            //swap the data
+            node.setData(tempNode.getData());
+            node.setLeftChild(remove(tempNode.getLeftChild(), data));
+        }
+
+        return node;
+    }
+
+    private Node<T> getPredecessor(Node<T> node) {
+        if (node.getRightChild() != null) {
+            return getPredecessor(node.getRightChild());
+        }
+
+        return node;
     }
 
     @Override
@@ -64,7 +110,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     private T getMin(Node<T> node) {
         if (node.getLeftChild() != null) {
-            return getMin(node.getLeftChild());
+            return getMin(node);
         }
 
         return node.getData();
@@ -76,7 +122,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         if (this.root == null) {
             return null;
         }
-        return getMax(this.root.getRightChild());
+        return getMax(this.root);
 
     }
 
