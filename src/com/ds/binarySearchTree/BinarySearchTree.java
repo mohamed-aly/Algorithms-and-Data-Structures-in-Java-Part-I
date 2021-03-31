@@ -5,6 +5,30 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
     private Node<T> root;
 
     @Override
+    public boolean isTypical(Tree<T> tree) {
+        if (this.root != null) {
+            return isTypical(this.root, tree.getRoot());
+        }
+        return false;
+    }
+
+    private boolean isTypical(Node<T> node1, Node<T> node2) {
+        if (node1 == null || node2 == null) return node1 == node2;
+
+        if (node1.getData().compareTo(node2.getData()) != 0) {
+            return false;
+        }
+
+        return isTypical(node1.getLeftChild(), node2.getLeftChild()) && isTypical(node2.getRightChild(), node2.getRightChild());
+    }
+
+    @Override
+    public Node<T> getRoot() {
+        return this.root;
+    }
+
+
+    @Override
     public void traverse() {
         if (this.root != null)
             inOrderTraversal(this.root);
@@ -104,13 +128,13 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
             return null;
         }
 
-        return getMin(root.getLeftChild());
+        return getMin(root);
 
     }
 
     private T getMin(Node<T> node) {
         if (node.getLeftChild() != null) {
-            return getMin(node);
+            return getMin(node.getLeftChild());
         }
 
         return node.getData();
@@ -125,6 +149,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         return getMax(this.root);
 
     }
+
 
     private T getMax(Node<T> node) {
         if (node.getRightChild() != null) {

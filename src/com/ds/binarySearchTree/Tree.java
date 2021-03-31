@@ -7,4 +7,6 @@ public interface Tree<T> {
     void remove(T data);
     T getMin();
     T getMax();
+    boolean isTypical(Tree<T> tree);
+    Node<T> getRoot();
 }

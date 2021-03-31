@@ -7,19 +7,14 @@ public class App {
         tree.insert(10);
         tree.insert(5);
         tree.insert(11);
-        tree.insert(-1);
-        tree.insert(20);
-        tree.insert(-5);
-        tree.insert(0);
 
-        tree.remove(20);
-        System.out.println(tree.getMax());
-        tree.remove(11);
-        System.out.println(tree.getMax());
-        tree.remove(10);
-        System.out.println(tree.getMax());
+        Tree<Integer> tree2 = new BinarySearchTree<>();
+        tree2.insert(10);
+        tree2.insert(5);
+        tree2.insert(1);
 
-        tree.traverse();
+        System.out.println(tree.isTypical(tree2));
+
 
     }
 }
