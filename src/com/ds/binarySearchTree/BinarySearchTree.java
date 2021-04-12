@@ -4,6 +4,9 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     private Node<T> root;
 
+    private static int count = 0;
+
+
     @Override
     public boolean isTypical(Tree<T> tree) {
         if (this.root != null) {
@@ -122,6 +125,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         return node;
     }
 
+
     @Override
     public T getMin() {
         if (this.root == null) {
@@ -148,6 +152,25 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         }
         return getMax(this.root);
 
+    }
+
+    @Override
+    public Node<T> smallestK(int order) {
+        return getSmallestK(this.root, order);
+    }
+
+    private Node<T> getSmallestK(Node<T> node, int k) {
+        int n = treeSize(node.getLeftChild()) + 1;
+
+        if (n == k) return node;
+        if (n > k) return getSmallestK(node.getLeftChild(), k);
+        else return getSmallestK(node.getRightChild(), k-n);
+    }
+
+    private int treeSize(Node<T> node) {
+        if (node == null) return 0;
+
+        return (treeSize(node.getLeftChild()) + treeSize(node.getRightChild()) + 1);
     }
 
 

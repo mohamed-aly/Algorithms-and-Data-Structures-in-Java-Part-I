@@ -8,12 +8,8 @@ public class App {
         tree.insert(5);
         tree.insert(11);
 
-        Tree<Integer> tree2 = new BinarySearchTree<>();
-        tree2.insert(10);
-        tree2.insert(5);
-        tree2.insert(1);
 
-        System.out.println(tree.isTypical(tree2));
+        System.out.println(tree.smallestK(1));
 
 
     }
