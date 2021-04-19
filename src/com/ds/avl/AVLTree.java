@@ -80,8 +80,8 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
         newRoot.setRightChild(node);
         node.setLeftChild(t);
 
-        newRoot.setHeight(Math.max(getHeight(newRoot.getLeftChild()), getHeight(newRoot.getRightChild())) + 1);
         node.setHeight(Math.max(getHeight(node.getLeftChild()), getHeight(node.getRightChild())) + 1);
+        newRoot.setHeight(Math.max(getHeight(newRoot.getLeftChild()), getHeight(newRoot.getRightChild())) + 1);
 
         return newRoot;
     }
@@ -94,8 +94,9 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
         newRoot.setLeftChild(node);
         node.setRightChild(t);
 
-        newRoot.setHeight(Math.max(getHeight(newRoot.getLeftChild()), getHeight(newRoot.getRightChild())) + 1);
         node.setHeight(Math.max(getHeight(node.getLeftChild()), getHeight(node.getRightChild())) + 1);
+        newRoot.setHeight(Math.max(getHeight(newRoot.getLeftChild()), getHeight(newRoot.getRightChild())) + 1);
+
 
         return newRoot;
     }
