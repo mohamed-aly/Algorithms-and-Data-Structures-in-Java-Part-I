@@ -41,4 +41,9 @@ public class Node<T extends Comparable<T>> {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    @Override
+    public String toString() {
+        return data.toString();
+    }
 }
