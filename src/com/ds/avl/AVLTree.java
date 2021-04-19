@@ -20,16 +20,20 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
 
     private Node<T> insert(Node<T> node, T data) {
         if (node == null) {
+            System.out.println(data + " inserted");
             return new Node<>(data);
         }
 
-        if (data.compareTo(node.getLeftChild().getData()) < 0) {
-            insert(node.getLeftChild(), data);
+        if (data.compareTo(node.getData()) < 0) {
+            System.out.println("new Data " + data +" < Node.getData() " + node.getData() + " Going left");
+            node.setLeftChild(insert(node.getLeftChild(), data));
         } else {
-            insert(node.getRightChild(), data);
+            System.out.println("new Data " + data +" >= Node.getData() " + node.getData()+ " Going right");
+            node.setRightChild(insert(node.getRightChild(), data));
         }
 
         node.setHeight(Math.max(getHeight(node.getLeftChild()), getHeight(node.getRightChild())) + 1);
+//        System.out.println(this.root.getHeight());
 
         node = settleViolation(node, data);
 
@@ -38,25 +42,29 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
 
     private Node<T> settleViolation(Node<T> node, T data) {
         int balance = getBalance(node);
-
+        System.out.println("Settling Violation and balance is = " + balance);
         //case 1 (double left heavy situation) left-left
         if(balance > 1 && data.compareTo(node.getLeftChild().getData()) < 0){
+            System.out.println("left-left");
             return rotateRight(node);
         }
 
         //case 2 (double right heavy situation) right-right
         if(balance < -1 && data.compareTo(node.getRightChild().getData()) > 0){
+            System.out.println("right-right");
             return rotateLeft(node);
         }
 
         //case 3 left-right
         if(balance > 1 && data.compareTo(node.getLeftChild().getData()) > 0){
+            System.out.println("left-right");
             node.setLeftChild(rotateLeft(node.getLeftChild()));
             return rotateRight(node);
         }
 
         //case 4 right-left
         if(balance < -1 && data.compareTo(node.getRightChild().getData()) < 0){
+            System.out.println("right-left");
             node.setRightChild(rotateRight(node.getRightChild()));
             return rotateLeft(node);
         }
@@ -65,6 +73,7 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
     }
 
     private Node<T> rotateRight(Node<T> node) {
+        System.out.println("Rotating Right");
         Node<T> newRoot = node.getLeftChild();
         Node<T> t = newRoot.getRightChild();
 
@@ -78,6 +87,7 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
     }
 
     private Node<T> rotateLeft(Node<T> node) {
+        System.out.println("Rotating left");
         Node<T> newRoot = node.getRightChild();
         Node<T> t = newRoot.getLeftChild();
 
