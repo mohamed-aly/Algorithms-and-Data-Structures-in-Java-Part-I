@@ -1,11 +1,11 @@
 package com.ds.redBlackTree;
 
-public class Node<T> {
+public class Node<T extends Comparable<T>> {
     private T data;
     private NodeColor color;
     private Node<T> leftChild;
     private Node<T> rightChild;
-    private Node<T> parentChild;
+    private Node<T> parent;
 
     public Node(T data) {
         this.data = data;
@@ -43,12 +43,12 @@ public class Node<T> {
         this.rightChild = rightChild;
     }
 
-    public Node<T> getParentChild() {
-        return parentChild;
+    public Node<T> getParent() {
+        return parent;
     }
 
-    public void setParentChild(Node<T> parentChild) {
-        this.parentChild = parentChild;
+    public void setParent(Node<T> parent) {
+        this.parent = parent;
     }
 
     @Override
