@@ -29,7 +29,70 @@ public class RedBlackTree<T extends Comparable<T>> implements Tree<T> {
         fixViolations(newNode);
     }
 
-    private void fixViolations(Node<T> newNode) {
+    private void fixViolations(Node<T> node) {
+        Node<T> parentNode;
+        Node<T> grandParentNode;
+
+        while (node != root && node.getColor() != NodeColor.BLACK && node.getParent().getColor() == NodeColor.RED) {
+
+            parentNode = node.getParent();
+            grandParentNode = node.getParent().getParent();
+
+            if (parentNode == grandParentNode.getLeftChild()) {
+
+                Node<T> uncle = grandParentNode.getRightChild();
+
+                //case 1: recoloring
+                if (uncle != null && uncle.getColor() == NodeColor.RED) {
+                    grandParentNode.setColor(NodeColor.RED);
+                    parentNode.setColor(NodeColor.BLACK);
+                    uncle.setColor(NodeColor.BLACK);
+                    node = grandParentNode;
+                } else {
+
+                    if (node == parentNode.getRightChild()) {
+                        leftRotate(parentNode);
+                        node = parentNode;
+                        parentNode = node.getParent();
+                    }
+
+                    rightRotate(grandParentNode);
+                    System.out.println("Recoroling " + parentNode + " + " + grandParentNode);
+                    NodeColor tempColor = parentNode.getColor();
+                    parentNode.setColor(grandParentNode.getColor());
+                    grandParentNode.setColor(tempColor);
+                    node = parentNode;
+                }
+            } else {
+
+                Node<T> uncle = grandParentNode.getLeftChild();
+
+                if (uncle != null && uncle.getColor() == NodeColor.RED) {
+                    grandParentNode.setColor(NodeColor.RED);
+                    parentNode.setColor(NodeColor.BLACK);
+                    uncle.setColor(NodeColor.BLACK);
+                    node = grandParentNode;
+                } else {
+
+                    if (node == parentNode.getLeftChild()) {
+                        rightRotate(parentNode);
+                        node = parentNode;
+                        parentNode = node.getParent();
+                    }
+                    leftRotate(grandParentNode);
+                    System.out.println("Recoroling " + parentNode + " + " + grandParentNode);
+                    NodeColor tempColor = parentNode.getColor();
+                    parentNode.setColor(grandParentNode.getColor());
+                    grandParentNode.setColor(tempColor);
+                    node = parentNode;
+                }
+            }
+        }
+
+        if (root.getColor() == NodeColor.RED) {
+            System.out.println("Recoloring the root to black...");
+            root.setColor(NodeColor.BLACK);
+        }
 
     }
 

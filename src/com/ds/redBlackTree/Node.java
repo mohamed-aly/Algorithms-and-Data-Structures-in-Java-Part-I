@@ -9,6 +9,7 @@ public class Node<T extends Comparable<T>> {
 
     public Node(T data) {
         this.data = data;
+        this.color = NodeColor.RED;
     }
 
     public T getData() {
