@@ -2,7 +2,11 @@ package com.ds.heapInterviewQuestions;
 
 public class ValidatingMinHeap {
     public static void main(String[] args) {
-        int[] array = {2, 5, 23, 210, 100, 1};
+        int[] array = {210, 100, 23, 2, 5, 1};
+        System.out.println(isValidMinHeap(array));
+
+        MaxHeapIntoMinHeap maxHeapIntoMinHeap = new MaxHeapIntoMinHeap(array);
+        maxHeapIntoMinHeap.transform();
         System.out.println(isValidMinHeap(array));
     }
 
