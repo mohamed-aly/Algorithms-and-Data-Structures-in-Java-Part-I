@@ -1,4 +1,4 @@
-package com.ds.hashMap;
+package com.ds.hashMap.chaining;
 
 public class Constants {
 
