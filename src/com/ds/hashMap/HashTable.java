@@ -3,6 +3,10 @@ package com.ds.hashMap;
 public class HashTable<K, V> {
     private HashItem<K, V>[] hashTable;
 
+    public HashTable() {
+        this.hashTable = new HashItem[Constants.TABLE_SIZE];
+    }
+
     public V get(K key) {
         int hashArrayIndex = hash(key);
         HashItem<K, V> hashItem = this.hashTable[hashArrayIndex];
@@ -25,6 +29,7 @@ public class HashTable<K, V> {
 
     public void put(K key, V value) {
         int hashArrayIndex = hash(key);
+        System.out.println("generated hash key = " + hashArrayIndex);
 
         if (this.hashTable[hashArrayIndex] == null) {
             HashItem<K, V> hashItem = new HashItem<>(key, value);
