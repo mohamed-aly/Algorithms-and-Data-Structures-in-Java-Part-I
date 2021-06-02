@@ -10,29 +10,23 @@ public class HashTable<K, V> {
 
     public V get(K key) {
         int hashArrayIndex = hash(key);
-        HashItem<K, V> hashItem = this.hashTable[hashArrayIndex];
 
-        if (hashItem == null) {
-            throw new IllegalArgumentException("No Records Found with the provided Key");
-        } else {
-
-            while (hashItem != null && !hashItem.getKey().equals(key)) {
-                hashItem = this.hashTable[++hashArrayIndex];
-            }
-
-            if (hashItem == null) {
-                throw new IllegalArgumentException("No Records Found with the provided Key");
-            }
-
-            return hashItem.getValue();
+        while (this.hashTable[hashArrayIndex] != null && !this.hashTable[hashArrayIndex].getKey().equals(key)) {
+            hashArrayIndex = (hashArrayIndex + 1) % Constants.TABLE_SIZE;
         }
+
+        if(this.hashTable[hashArrayIndex] == null){
+            throw new IllegalArgumentException("No Records found with this Key");
+        }
+
+        return this.hashTable[hashArrayIndex].getValue();
     }
 
     public void put(K key, V value) {
         int hashArrayIndex = hash(key);
 
-        while(this.hashTable[hashArrayIndex] != null){
-            hashArrayIndex = (hashArrayIndex+1)%Constants.TABLE_SIZE;
+        while (this.hashTable[hashArrayIndex] != null) {
+            hashArrayIndex = (hashArrayIndex + 1) % Constants.TABLE_SIZE;
         }
 
         this.hashTable[hashArrayIndex] = new HashItem<>(key, value);
