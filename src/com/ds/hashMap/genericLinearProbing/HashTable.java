@@ -29,6 +29,49 @@ public class HashTable<K, V> {
         return this.size == 0;
     }
 
+    public void put(K key, V value) {
+        if (key == null || value == null) return;
+
+        if (this.size >= 0.75 * this.capacity) {
+            resize(capacity * 2);
+        }
+
+        int index = hash(key);
+
+        while (keys[index] != null) {
+            if (keys[index].equals(key)) {
+                values[index] = value;
+                return;
+            }
+
+            index = (index + 1) % capacity;
+        }
+
+        keys[index] = key;
+        values[index] = value;
+        size++;
+
+
+    }
+
+    public void remove(K key) {
+        if (key == null) return;
+
+        int index = hash(key);
+
+        while (keys[index].equals(key)) {
+            index = (index + 1) % capacity;
+        }
+
+        keys[index] = null;
+        values[index] = null;
+        size--;
+    }
+
+    private void resize(int newCapacity) {
+        this.capacity = newCapacity;
+    }
+
     public V get(K key) {
         if (key == null) return null;
 
